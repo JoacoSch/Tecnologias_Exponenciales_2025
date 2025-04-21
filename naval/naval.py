@@ -50,7 +50,7 @@ def newTurn(player,target_player, turns_remaining, turnNumber):
         turn_active = True
         while turn_active:
             try:
-                turn = Turn(player.playersId,target_player, turnNumber)
+                turn = Turn(player.playersId, turnNumber)
                 x, y = map(int, turn.cords.split(","))
                 x -= 1
                 y -= 1
@@ -82,12 +82,13 @@ turns_remaining = g_shots
 turnNumber = 1
 while turns_remaining > 0:
     print(f"Player 1's turn:")
-    turn = newTurn(player1, turns_remaining, turnNumber)
+    newTurn(player1,player2 ,turns_remaining, turnNumber)
     turnNumber += 1
     turns_remaining -= 1  
     
     print(f"Player 2's turn:")
-    turn = newTurn(player2, turns_remaining, turnNumber)
+
+    newTurn(player2,player1 ,turns_remaining, turnNumber)
     turnNumber += 1
     turns_remaining -= 1
     if len(player1.boats) == 0 and len(player2.boats) == 0:
